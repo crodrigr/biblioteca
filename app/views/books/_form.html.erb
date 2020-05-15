@@ -10,28 +10,36 @@
       </ul>
     </div>
   <% end %>
+  
 
-  <div class="field">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn %>
+
+<div class="form-group">
+    <%= form.label :isbn, "Isbn", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+    <%= form.text_field :isbn, class: "form-control" %>
+    </div>
+ </div>
+
+ <div class="form-group">
+    <%= form.label :titulo, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+    <%= form.text_field :titulo,class: "form-control"  %>
+   </div>
+  </div> 
+
+  <div class="form-group">
+    <%= form.label :paginas, class: "col-md-4 control-label"  %>
+    <div class="col-md-8">
+    <%= form.number_field :paginas,class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo %>
+  <div class="form-group">
+    <%= form.label :editorial, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+    <%= form.text_field :editorial,class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :paginas %>
-    <%= form.number_field :paginas %>
-  </div>
-
-  <div class="field">
-    <%= form.label :editorial %>
-    <%= form.text_field :editorial %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  </div>  
+  <%= form.submit "Guardar", class: "btn btn-default btn-primary" %>
+  <%= link_to "Cancel",books_path , {:class=>"btn btn-default btn-primary"} %>
 <% end %>
