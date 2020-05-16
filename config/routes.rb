@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :authors
+  resources :copies
+  devise_for :users
   resources :books
   resources :cars
   get 'welcome/index'

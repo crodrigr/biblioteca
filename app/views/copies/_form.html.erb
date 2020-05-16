@@ -1,0 +1,27 @@
+<%= form_with(model: copy, local: true) do |form| %>
+  <% if copy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(copy.errors.count, "error") %> prohibited this copy from being saved:</h2>
+
+      <ul>
+        <% copy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :codigo %>
+    <%= form.text_field :codigo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :localizacion %>
+    <%= form.text_field :localizacion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

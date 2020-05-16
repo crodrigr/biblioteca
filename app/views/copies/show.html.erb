@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @copy.codigo %>
+</p>
+
+<p>
+  <strong>Localizacion:</strong>
+  <%= @copy.localizacion %>
+</p>
+
+<%= link_to 'Edit', edit_copy_path(@copy) %> |
+<%= link_to 'Back', copies_path %>
