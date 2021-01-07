@@ -21,6 +21,36 @@ class BooksController < ApplicationController
   def edit
   end
 
+  def indexPrestamo
+    @books = Book.all
+  end
+
+  def loadAuthors
+    @book=Book.find(params[:id_book])
+    @autores=Author.all
+    respond_to do |format|
+     format.js     
+    end
+  end
+
+  def saveBookAuthor
+    idBook   = params[:book_id]
+    idAuthor = params[:author_id]
+    rta           = params[:checked]
+    if rta=="true"
+      authorBook=AuthorBook.new
+      authorBook.book_id=idBook
+      authorBook.author_id=idAuthor
+      authorBook.save
+    else
+      authorBook=AuthorBook.find_by(book_id: idBook, author_id:idAuthor)
+      authorBook.destroy
+    end
+    respond_to do |format|
+         format.js
+    end
+  end
+
   # POST /books
   # POST /books.json
   def create

@@ -1,0 +1,49 @@
+
+
+<h1>Libros para presetar</h1>
+
+<%= link_to 'Crear Libro', new_book_path, {:class=>"btn btn-primary"} %>
+<%= link_to 'Autores', authors_path, {:class=>"btn btn-primary"} %>
+<p pt-1></p>
+
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Isbn</th>
+      <th>Titulo</th>
+      <th>Paginas</th>
+      <th>Editorial</th>
+      <th>Ejemplares</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td  scope="row"><%= link_to book.isbn, :controller=>'copies', :action=>'index', :idBook=>book.id %></td>
+        <td><%= book.titulo %></td>
+        <td><%= book.paginas %></td>
+        <td><%= book.editorial %></td>
+        <td><%= book.copies.count %></td>
+        <td>               
+        <button type="button" class="btn btn-primary" 
+                data-toggle="modal" 
+                data-target="#exampleModal" 
+                onclick="loadAuthors('<%=book.id%>');">
+          author
+         </button>
+       </td>  
+        <td><%= link_to 'Show', book, {:class=>"btn btn-primary"} %></td>
+        <td><%= link_to 'Edit', edit_book_path(book), {:class=>"btn btn-success"} %></td>
+        <td><%= link_to 'Destroy', book, 
+                     method: :delete,
+                     class: "btn btn-danger", 
+                     data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

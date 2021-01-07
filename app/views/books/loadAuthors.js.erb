@@ -1,0 +1,30 @@
+$("#nameBook").empty()
+
+$("#nameBook").append("<%=@book.titulo%>")
+$("#tableAutores").empty()
+$("#tableAutores").append("<thead><tr>"+
+	                           "<th width='40%'>Nombre</th>"+
+	                           "<th width='40%'>Apellido</th>"+
+	                           "<th width='10%'>Codigo</th>"+
+                             "<th width='10%'></th>"+
+	                           "</tr></thead><tbody>");
+ <%i=1%>
+ <% @autores.each do |autor|%>
+ $("#tableAutores").append("<tr>"+
+"<td width='40%'><%= autor.nombre %></td>"+
+"<td width='40%'><%= autor.apellido %></td>"+
+"<td width='10%'><%= autor.codigo %></td>"+                              
+"<td>"+
+"<% authorBook=AuthorBook.find_by(author_id: autor.id,book_id: @book.id) %> "+
+"<%if authorBook!=nil %>"+
+"<input type='checkbox' class='filled-in' id='authorBook<%=autor.id%>' onChange='saveBookAuthor(this,<%=@book.id%>,<%=autor.id%>)'  checked/>"+
+"<%else%>"+
+"<input type='checkbox' class='filled-in' id='authorBook<%=autor.id%>' onChange='saveBookAuthor(this,<%=@book.id%>,<%=autor.id%>)'  />"+
+"<%end%>"+
+"<label for='authorBook<%=autor.id%>'></label>"+
+"</td>"+
+"<td width='10%'></td>"+
+"</tr>");
+ <%i+=1%>
+ <%end%>
+$("#tableAutores").append("</tbody>");
