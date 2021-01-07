@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Proyecto desarrollado en Ruby on Rails para la gestion de prestamos libros de una biblioteca. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Esta disponible en heroku y se puede acceder a través de la siguiente url https://library02.herokuapp.com/users/sign_in
